@@ -26,4 +26,7 @@
 
    конфиг filebeat
 
-5. 
+   Filebeat шлет данные в logstash, затем применяется фильтр для лога mariadb, конфиг с именем mariadb-filter. 
+
+![image](https://github.com/user-attachments/assets/2cf73a04-c30e-44dc-9f99-7535c3f3679c)
+

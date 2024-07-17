@@ -24,7 +24,7 @@
 
 3. На другой ВМ Filebeat перенастроен на отправку логов в него.
 
-   конфиг filebeat - https://github.com/Vladimir174/monitoring-024/blob/main/filebeat.yml
+   конфиг [filebeat](https://github.com/Vladimir174/monitoring-024/blob/main/filebeat.yml)
 
    Filebeat шлет данные в logstash, затем применяется фильтр для лога mariadb, конфиг с именем [mariadb-filter](https://github.com/Vladimir174/monitoring-024/blob/main/mariadb-filter.conf). 
 

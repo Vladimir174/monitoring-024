@@ -18,15 +18,15 @@
 
 1. Установлен Logstash рядом с Elasticsearch.
 
-   конфиг logstash -
+   конфиг [logstash](https://github.com/Vladimir174/monitoring-024/blob/main/logstash.yml)
 
-   конфиг Elasticsearch -
+   конфиг [Elasticsearch](https://github.com/Vladimir174/monitoring-024/blob/main/elasticsearch.yml)
 
 3. На другой ВМ Filebeat перенастроен на отправку логов в него.
 
-   конфиг filebeat
+   конфиг filebeat - https://github.com/Vladimir174/monitoring-024/blob/main/filebeat.yml
 
-   Filebeat шлет данные в logstash, затем применяется фильтр для лога mariadb, конфиг с именем mariadb-filter. 
+   Filebeat шлет данные в logstash, затем применяется фильтр для лога mariadb, конфиг с именем [mariadb-filter](https://github.com/Vladimir174/monitoring-024/blob/main/mariadb-filter.conf). 
 
 ![image](https://github.com/user-attachments/assets/2cf73a04-c30e-44dc-9f99-7535c3f3679c)
 

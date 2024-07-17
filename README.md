@@ -30,3 +30,5 @@
 
 ![image](https://github.com/user-attachments/assets/2cf73a04-c30e-44dc-9f99-7535c3f3679c)
 
+3. Установлен и настроен Vector.
+

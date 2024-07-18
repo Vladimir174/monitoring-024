@@ -30,5 +30,10 @@
 
 ![image](https://github.com/user-attachments/assets/2cf73a04-c30e-44dc-9f99-7535c3f3679c)
 
-3. Установлен и настроен Vector.
+3. Теперь вместо logstash установлен и настроен Vector.
+
+   конфиг [vector](https://github.com/Vladimir174/monitoring-024/blob/main/vector.yaml)
+
+   ![image](https://github.com/user-attachments/assets/e99366e7-e5b2-4fac-a641-a24e2dbbb2dc)
+
 

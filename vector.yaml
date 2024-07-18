@@ -1,0 +1,52 @@
+# Указать источник данных (логов)
+sources:
+  log_source:
+    type: file
+    include: ["/var/log/mariadb/mariadb.log"]
+    ignore_older: 86400  # Игнорировать файлы старше 24 часов
+
+# Указать преобразование данных с использованием VRL
+transforms:
+  remap:
+    type: remap
+    inputs: ["log_source"]
+    source: |
+      .timestamp = parse_timestamp!(.message, "%Y-%m-%d %H:%M:%S")
+      .level, err = parse_regex(.message, r'^\d+\s+\[(?P<level>\w+)\]')
+      if err == null {
+        .level = .level.level
+      }
+      .connection_id, err = parse_regex(.message, r'^\d+\s+\[\w+\]\s+Aborted connection (?P<id>\d+)')
+      if err == null {
+        .connection_id = .connection_id.id
+      }
+      .db, err = parse_regex(.message, r'to db: \'(?P<db>\w+)\'')
+      if err == null {
+        .db = .db.db
+      }
+      .user, err = parse_regex(.message, r'user: \'(?P<user>\w+)\'')
+      if err == null {
+        .user = .user.user
+      }
+      .host, err = parse_regex(.message, r'host: \'(?P<host>[^\']+)')
+      if err == null {
+        .host = .host.host
+      }
+      del(.message)
+
+# Указать вывод данных в Elasticsearch
+sinks:
+  elasticsearch:
+    type: elasticsearch
+    inputs: ["remap"]
+    endpoints: ["http://192.168.112.27:9200"]
+    data_stream:
+      type: logs
+      dataset: vector-vm-otus
+      namespace: default
+    request:
+      timeout_secs: 2147483648  # Максимальное значение для типов int
+
+# Включение API
+api:
+  enabled: true

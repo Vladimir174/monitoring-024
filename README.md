@@ -16,13 +16,13 @@
 Вместо Logstash установите и настройке Vector с аналогичным парсингом логов при помощи VRL.
 
 
-1. Установлен Logstash рядом с Elasticsearch.
+**1.** Установлен Logstash рядом с Elasticsearch.
 
    конфиг [logstash](https://github.com/Vladimir174/monitoring-024/blob/main/logstash.yml)
 
    конфиг [Elasticsearch](https://github.com/Vladimir174/monitoring-024/blob/main/elasticsearch.yml)
 
-3. На другой ВМ Filebeat перенастроен на отправку логов в него.
+**2.** На другой ВМ Filebeat перенастроен на отправку логов в него.
 
    конфиг [filebeat](https://github.com/Vladimir174/monitoring-024/blob/main/filebeat.yml)
 
@@ -30,7 +30,7 @@
 
 ![image](https://github.com/user-attachments/assets/2cf73a04-c30e-44dc-9f99-7535c3f3679c)
 
-3. Теперь вместо logstash установлен и настроен Vector.
+**3.** Теперь вместо logstash установлен и настроен Vector.
 
    конфиг [vector](https://github.com/Vladimir174/monitoring-024/blob/main/vector.yaml)
 
